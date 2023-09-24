@@ -5,19 +5,15 @@
     </head>
     <body>
         <header>
-            <h1><a href="/">Ritabrata Roy's Blog</a></h1>
+            <h1><a href="/">Django Girls Blog</a></h1>
         </header>
-
-        <article>
-            <time>published: 25-09-2023, 03:48</time>
-            <h2><a href="">My first post</a></h2>
-            <p>Hello I am Ritabrata .I am currently a B.E. CSE undergrad at Jadavpur University</p>
-        </article>
-
-        <article>
-            <time>published:  25-09-2023, 03:48</time>
-            <h2><a href="">My second post</a></h2>
-            <p>I like mathematics and in quest to combine my tech skills with maths </p>
-        </article>
+        
+        {% for post in posts %}
+            <article>
+                <time>published: {{ post.published_date }}</time>
+                <h2><a href="">{{ post.title }}</a></h2>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </article>
+        {% endfor %}
     </body>
 </html>
